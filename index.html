@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Toonice — UK HMO operations</title>
-    <meta name="description" content="UK HMO operator and builder. Joint tenancies, licensing, data, and the Renters’ Rights Act. Not another property portal." />
+    <title>Toonice — England HMO tools</title>
+    <meta name="description" content="Several, joint-exposure, and the HMO licence book. Rules and data for house-share breakups in England after 1 May 2026." />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,110 +16,112 @@
       <header>
         <a class="brand" href="./">Toonice</a>
         <nav>
-          <a href="#work">Work</a>
-          <a href="#domain">Domain</a>
-          <a href="#data">Data</a>
-          <a href="#school">School</a>
+          <a href="#several">Several</a>
+          <a href="#exposure">Exposure</a>
+          <a href="#licence">Licence book</a>
           <a href="https://github.com/toonice">GitHub</a>
         </nav>
       </header>
+
       <div class="hero">
-        <p class="kicker">England · HMO operations · post-RRA</p>
+        <p class="kicker">England · HMO / PRS · after 1 May 2026</p>
         <h1>The house is not the hard part. The names on the contract are.</h1>
-        <p class="lede">I run the unglamorous end of the private rented sector: joint-and-several liability, HMO licensing, deposit pots, guarantor deeds, and what actually happens when one occupier serves notice. I also write the software, because the portals stop at the listing.</p>
+        <p class="lede">Tools for when a house-share breaks up: who still owes the rent, when the tenancy ends, and whether the fifth bed actually pays for the licence. Not a listing portal.</p>
         <div class="actions">
-          <a class="btn btn-primary" href="https://github.com/toonice/several">See Several</a>
-          <a class="btn btn-ghost" href="#school">Training record</a>
+          <a class="btn btn-primary" href="https://github.com/toonice/several">Several</a>
+          <a class="btn btn-ghost" href="https://github.com/toonice">All repos</a>
         </div>
       </div>
+
       <div class="stats">
-        <div class="stat"><b>3</b><span>Occupancy types modelled</span></div>
+        <div class="stat"><b>3</b><span>Occupancy types</span></div>
         <div class="stat"><b>2–8</b><span>Beds on a joint APT</span></div>
         <div class="stat"><b>1 May 26</b><span>Assured periodic tenancies</span></div>
-        <div class="stat"><b>5+</b><span>HMO threshold (England)</span></div>
+        <div class="stat"><b>5+</b><span>Mandatory HMO (England)</span></div>
       </div>
-      <section id="work">
-        <p class="kicker">Featured build</p>
+
+      <section id="several">
+        <p class="kicker">Rules engine</p>
         <h2>Several — house-share breakup under joint-and-several.</h2>
         <div class="grid-2">
           <div class="paper">
-            <h3>The product portals will not touch</h3>
-            <p>Rightmove sells the room. The fight starts after keys. Several is a rules engine for England from 1 May 2026: one named tenant serves notice on a joint assured periodic tenancy, and the contract dies for everyone. Remaining occupiers need a new grant. A replacement housemate does not slide into the old names.</p>
-            <p>Occupancy type is the whole product. Joint APT, separate room contracts, lodger. Notice snaps to a rent-due day or the day before. Deposits stay one pot. Guarantors follow the deed, not the friendship. Council tax is classified, not guessed.</p>
+            <h3>What it does</h3>
+            <p>You set occupancy, who is leaving, notice or surrender, deposit, guarantors, council tax. It returns a determination: earliest end date, who is still liable for the whole rent, whether stayers need a new grant, and what to do with the pot and the deeds.</p>
+            <p>Joint APT, separate room contracts, lodger. Dropdowns only offer what that occupancy can actually do. Informal “shares” are not the contract on a joint let.</p>
             <p><a href="https://github.com/toonice/several">github.com/toonice/several</a></p>
           </div>
           <div>
             <div class="dark-card" style="margin-bottom:16px">
-              <span class="tag">Property management</span>
-              <h3>Licence, not listing</h3>
-              <p>Mandatory HMO at five occupiers forming two or more households. Article 4, amenities, management regs, Right to Rent, How to Rent, prescribed information. The stack an agent actually runs, not a map pin.</p>
+              <span class="tag">Use</span>
+              <h3>File note when someone serves notice</h3>
+              <p>Agents and landlords: who to chase, what date to diary, whether a replacement can step in. Occupiers: whether walking out ends the liability (it does not, on a joint APT, until the tenancy ends).</p>
             </div>
             <div class="dark-card" style="margin-bottom:16px">
-              <span class="tag">Project management</span>
-              <h3>Scope is a legal decision</h3>
-              <p>England only. Wales occupation contracts, Scottish PRTs and NI are out on purpose. A PM who ships a UK engine here is the liability. Delivery is occupancy-first configuration, not a backlog of portal features.</p>
+              <span class="tag">Use</span>
+              <h3>Instruct</h3>
+              <p>The engine decides dates and liability. Grok writes the briefing against that JSON. It is not allowed to invent a different law. Save the file to the desk and search it later.</p>
             </div>
             <div class="dark-card">
-              <span class="tag">Data analysis</span>
-              <h3>The rent is not n ways</h3>
-              <p>Informal shares versus joint debt. Tenant Fees Act 5/6-week deposit caps from weekly rent. Notice clocks. Liability tables that change when you flip occupancy — that is the analysis. Spreadsheets that split by headcount are the error.</p>
+              <span class="tag">Scope</span>
+              <h3>England only</h3>
+              <p>Assured periodic tenancies from 1 May 2026. Wales occupation contracts, Scottish PRTs and NI are out on purpose.</p>
             </div>
           </div>
         </div>
       </section>
-      <section id="domain">
-        <p class="kicker">Operating model</p>
-        <h2>What I actually know about HMOs.</h2>
-        <div class="grid-3">
-          <div class="dark-card"><span class="tag">01</span><h3>Monk still applies</h3><p>One valid NTQ on a joint periodic tenancy determines the lot. Wanting to stay is not a right to remain on dead names.</p></div>
-          <div class="dark-card"><span class="tag">02</span><h3>Joint and several</h3><p>The landlord can chase any named tenant — or their guarantor — for the whole rent until the tenancy actually ends.</p></div>
-          <div class="dark-card"><span class="tag">03</span><h3>Room lets are the control</h3><p>Separate contracts in one building. One notice, one room. The mess moves to HMO, council tax and deposit structure.</p></div>
-          <div class="dark-card"><span class="tag">04</span><h3>Lodgers are not APTs</h3><p>Resident-landlord excluded occupiers: one period, weaker security, deposit protection often does not bite the same way.</p></div>
-          <div class="dark-card"><span class="tag">05</span><h3>TFA 2019 still bites</h3><p>Five weeks under £50k annual, six weeks above, holding deposit one week. Excess is a prohibited payment, not a negotiation.</p></div>
-          <div class="dark-card"><span class="tag">06</span><h3>Deeds die with the grant</h3><p>Guarantors cover this agreement. They do not silently guarantee the replacement tenancy. New grant, new deed.</p></div>
+
+      <section id="exposure">
+        <p class="kicker">Cash collection</p>
+        <h2>Joint exposure — when occupiers miss payments.</h2>
+        <div class="grid-2">
+          <div class="paper">
+            <h3>What it does</h3>
+            <p>Monte Carlo of 12 months of rent. Defaults are correlated (Gaussian copula), because people in one kitchen miss together. Joint occupancy: remaining names can still be chased for the whole rent, cash-constrained. Room lets: a miss is a hole in that contract only. Deposit recovery capped at the Tenant Fees Act. Guarantors are leaky.</p>
+            <p><a href="https://github.com/toonice/joint-exposure">github.com/toonice/joint-exposure</a></p>
+          </div>
+          <div class="dark-card">
+            <span class="tag">Use</span>
+            <h3>Compare occupancy on the same fabric</h3>
+            <p>Wilton Road joint vs Wilton rooms is the control. Joint looks safer on mean collection. The left tail (VaR95 shortfall) is where rooms lose more, until everyone misses together.</p>
+          </div>
         </div>
       </section>
-      <section id="data">
-        <p class="kicker">Analysis</p>
-        <h2>How I treat a house as data.</h2>
+
+      <section id="licence">
+        <p class="kicker">Yield</p>
+        <h2>HMO licence book — does the fifth bed pay?</h2>
+        <div class="grid-2">
+          <div class="paper">
+            <h3>What it does</h3>
+            <p>Same fabric, beds 2 through 8. Voids, mandatory licensing at five occupiers, additional licensing, amenity capex, bills, insurance, council tax. Then OLS on cash-on-cash yield with HC3 standard errors.</p>
+            <p><a href="https://github.com/toonice/hmo-licence-book">github.com/toonice/hmo-licence-book</a></p>
+          </div>
+          <div class="dark-card">
+            <span class="tag">Use</span>
+            <h3>Stop quoting gross yield as 4-bed plus a room</h3>
+            <p>The fifth occupier is usually a mandatory HMO. The book says whether NOI / purchase still rises after the licence and the extra kitchen.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="model">
+        <p class="kicker">Model</p>
+        <h2>How the tools treat a house.</h2>
         <table>
           <thead><tr><th>Question</th><th>Wrong model</th><th>Working model</th></tr></thead>
           <tbody>
             <tr><td><strong>Who owes the rent?</strong></td><td>Divide by beds</td><td>Occupancy type. Joint = whole rent, every name, until determination.</td></tr>
             <tr><td><strong>When can they leave?</strong></td><td>30 days from a text</td><td>Two months, in writing, ending on a due day or the day before. Lodger: one period.</td></tr>
-            <tr><td><strong>Is it an HMO?</strong></td><td>The agent said share house</td><td>Five+ occupiers, two+ households, licensing and management on the landlord. Debt still joint if the contract is.</td></tr>
+            <tr><td><strong>Is it an HMO?</strong></td><td>The agent said share house</td><td>Five+ occupiers, two+ households. Licensing on the landlord. Debt still joint if the contract is.</td></tr>
             <tr><td><strong>Can we swap a name?</strong></td><td>Handshake + new standing order</td><td>Surrender + new grant, or wait out notice. No slotting into a dying APT.</td></tr>
             <tr><td><strong>Deposit split</strong></td><td>Pay one person their third from the live pot</td><td>One tenancy, one pot, one scheme process. Checkout, repay, re-protect.</td></tr>
           </tbody>
         </table>
       </section>
-      <section id="school">
-        <p class="kicker">Training</p>
-        <h2>Bootcamp, Coursera, then the statute book.</h2>
-        <p class="lede" style="margin-bottom:28px">I finished freeCodeCamp and the professional certificate track on Coursera so I could build the ops layer myself — not so I could become another frontend generalist. The capstone is Several, not a to-do app.</p>
-        <div class="course"><div><strong>freeCodeCamp</strong><br /><small>Full curriculum — responsive web, JavaScript, front-end libraries, data visualisation</small></div><div class="tag">Bootcamp</div></div>
-        <div class="course"><div><strong>Google Data Analytics Professional Certificate</strong><br /><small>Coursera — Ask, prepare, process, analyse, share, act. SQL, spreadsheets, R, dashboards</small></div><div class="tag">Data</div></div>
-        <div class="course"><div><strong>IBM Data Analyst Professional Certificate</strong><br /><small>Coursera — Python, pandas, Excel, visualisation, dashboards for messy operational data</small></div><div class="tag">Data</div></div>
-        <div class="course"><div><strong>SQL for Data Science — University of California, Davis</strong><br /><small>Coursera — Querying, joins, aggregation. The rent roll is a table, not a vibe</small></div><div class="tag">Data</div></div>
-        <div class="course"><div><strong>Google Project Management Professional Certificate</strong><br /><small>Coursera — Initiation, planning, risk, stakeholder maps, Agile. Scope is the product</small></div><div class="tag">PM</div></div>
-        <div class="course"><div><strong>Excel Skills for Business — Macquarie University</strong><br /><small>Coursera — The actual tool most agents still live in. Named ranges, not heroic macros</small></div><div class="tag">Ops</div></div>
-        <div class="course"><div><strong>Business Statistics and Analysis — Rice University</strong><br /><small>Coursera — Distributions, inference, what a void-rate improvement actually means</small></div><div class="tag">Data</div></div>
-        <div class="course"><div><strong>Real Estate Finance and Investment — University of Pennsylvania (Wharton)</strong><br /><small>Coursera — Yield, leverage, cap rates. Why an 8-bed joint is a finance object, not a Facebook group</small></div><div class="tag">Property</div></div>
-        <div class="course"><div><strong>England PRS, on the statute</strong><br /><small>Renters’ Rights Act (APT from 1 May 2026), Tenant Fees Act 2019, Housing Act HMO regime, GOV.UK APT landlord guide, Shelter on NTQ</small></div><div class="tag">Domain</div></div>
-      </section>
-      <section>
-        <p class="kicker">How I work</p>
-        <h2>Project management, without the theatre.</h2>
-        <div class="grid-2">
-          <div class="dark-card"><h3>Occupancy first</h3><p>If the contract type is wrong, every downstream ticket is waste. I lock occupancy, size, leavers, then rent, deposit, guarantors, tax. Configuration is the spec.</p></div>
-          <div class="dark-card"><h3>Control cases</h3><p>A joint APT and four room contracts in the same postcode are different products. I ship the control case so the engine cannot lie.</p></div>
-          <div class="dark-card"><h3>England-shaped</h3><p>I will not just add Wales. Occupation contracts are another code. That is risk management, not laziness.</p></div>
-          <div class="dark-card"><h3>Show the model</h3><p>Legal model page next to the tool. Employers can read how I think. Tenants can see I am not a solicitor pretending otherwise.</p></div>
-        </div>
-      </section>
+
       <footer>
-        <p>Toonice · UK HMO operations. Not legal advice. England only.</p>
-        <p><a href="https://github.com/toonice">github.com/toonice</a> · <a href="https://github.com/toonice/several">Several</a></p>
+        <p>Toonice · England HMO tools. Not legal advice.</p>
+        <p><a href="https://github.com/toonice">github.com/toonice</a></p>
       </footer>
     </div>
   </body>
