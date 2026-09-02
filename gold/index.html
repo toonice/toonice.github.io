@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AU-Backtest — does the strategy beat the metal?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Outfit:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root { --bg:#efeae1; --fg:#161512; --muted:#6b655c; --accent:#2c3436; --accent-fg:#f4efe6; --border:#d4cdc2; --ok:#2f4f45; --bad:#6b2e2a; --surface:#f7f3ec; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.5 Outfit,system-ui,sans-serif; }
+    h1,h2,h3 { font-family:Fraunces,Georgia,serif; font-weight:500; text-wrap:balance; }
+    .wrap { max-width:1100px; margin:0 auto; padding:24px 16px 80px; }
+    nav { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    a { color:var(--fg); }
+    .hero { max-width:40rem; margin:32px 0; }
+    .kicker { letter-spacing:.16em; text-transform:uppercase; font-size:12px; color:var(--muted); }
+    .grid { display:grid; gap:28px; }
+    @media (min-width:900px) { .grid-2 { grid-template-columns:1fr 1fr; } }
+    .card { background:var(--accent); color:var(--accent-fg); border-radius:28px; padding:22px 24px; }
+    .card p { color:rgba(244,239,230,.8); }
+    .drop { border:1px dashed var(--border); border-radius:28px; padding:22px; background:var(--surface); }
+    .strats { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+    button.s { min-height:44px; text-align:left; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:8px 12px; cursor:pointer; font:inherit; }
+    button.s.on { background:var(--accent); color:var(--accent-fg); border-color:var(--accent); }
+    label { display:block; font-size:12px; color:var(--muted); margin-top:10px; }
+    input, select { min-height:44px; width:100%; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:0 10px; font:inherit; color:var(--fg); }
+    .stats { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+    @media (min-width:700px) { .stats { grid-template-columns:repeat(4,1fr); } }
+    .stat { border:1px solid var(--border); background:var(--surface); border-radius:12px; padding:12px; }
+    .stat b { display:block; font-family:Fraunces,serif; font-size:1.15rem; font-weight:500; }
+    .stat span { font-size:12px; color:var(--muted); }
+    svg { width:100%; height:auto; }
+    table { width:100%; border-collapse:collapse; font-size:12px; }
+    th { text-align:left; color:var(--muted); font-weight:500; }
+    td, th { padding:6px 8px; border-top:1px solid var(--border); }
+    .ok { color:var(--ok); } .bad { color:var(--bad); }
+    .muted { color:var(--muted); font-size:13px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav>
+      <strong>AU-Backtest</strong>
+      <a href="https://github.com/toonice/AU-Backtest">GitHub</a>
+    </nav>
+    <div class="hero">
+      <p class="kicker">XAUUSD · next-bar fills</p>
+      <h1>Does the strategy beat sitting on the metal?</h1>
+      <p class="muted">Ten gold books. Investor sheet. Drop your own CSV — even a 350MB tick dump stays in this browser.</p>
+    </div>
+    <div class="grid grid-2" style="margin-bottom:28px">
+      <div class="card" id="headline">
+        <p class="kicker" style="color:rgba(244,239,230,.7)">Loading book…</p>
+        <h2 id="verdict">—</h2>
+        <p id="sub"></p>
+      </div>
+      <label class="drop">
+        <strong>Your book</strong>
+        <p class="muted">CSV with date, open, high, low, close. Fat files fold to hourly.</p>
+        <input type="file" accept=".csv,.txt,.tsv" id="file" />
+        <p class="muted" id="src"></p>
+      </label>
+    </div>
+    <div class="grid grid-2">
+      <div>
+        <h2>Strategy</h2>
+        <div class="strats" id="strats"></div>
+        <p class="muted" id="blurb"></p>
+        <div class="grid grid-2">
+          <label>From<input type="date" id="from"></label>
+          <label>To<input type="date" id="to"></label>
+          <label>Side
+            <select id="side"><option value="long">Long only</option><option value="longshort">Long & short</option></select>
+          </label>
+          <label>Cost $/oz<input type="number" id="cost" value="0.4" step="0.1"></label>
+        </div>
+      </div>
+      <div>
+        <h2>Equity vs buy & hold</h2>
+        <p class="muted">Ink = strategy. Pale = owning gold.</p>
+        <div id="eq"></div>
+        <h2>Drawdown</h2>
+        <div id="dd"></div>
+      </div>
+    </div>
+    <h2>Investor sheet</h2>
+    <div class="stats" id="sheet"></div>
+    <h2>Monthly %</h2>
+    <div style="overflow:auto" id="heat"></div>
+    <h2>Trades</h2>
+    <div style="max-height:320px;overflow:auto;border:1px solid var(--border);border-radius:12px" id="trades"></div>
+    <p class="muted">Not a broker. Not advice.</p>
+  </div>
+  <script src="./engine.js"></script>
+</body>
+</html>
