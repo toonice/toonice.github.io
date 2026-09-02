@@ -1,2 +1,5 @@
 # toonice.github.io
-UK HMO operations — systems, data, and the post-RRA private rented sector.
+
+Personal site for UK HMO operations work.
+
+Live: https://toonice.github.io
